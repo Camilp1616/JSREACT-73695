@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-async function getAllProducts () {
+export async function getAllProducts () {
 return await axios.get ('https://dummyjson.com/products');
 }
 
