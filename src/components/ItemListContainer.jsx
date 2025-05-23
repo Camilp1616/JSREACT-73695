@@ -1,6 +1,4 @@
 import { Box, Heading, SimpleGrid, Image, Text } from "@chakra-ui/react";
-import {getAllProducts} from "../services/products.service"
-import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const ItemCard = ({ id, image,title,description, price, onClick}) => {
@@ -28,18 +26,7 @@ const ItemCard = ({ id, image,title,description, price, onClick}) => {
     )
 };
 
-const ItemListContainer = () => {
-console.log("Componente ItemListContainer montado")
-
-const [products, setProducts,] = useState ([]);
-
-    useEffect ( () => {
-        getAllProducts().then ((res) => {
-        console.log("Productos recibidos:", res.data.products);
-        setProducts (res.data.products);
-        });
-        },[])
-    const navigate = useNavigate()
+const ItemListContainer = ({products}) => {
 
     return (
     <Box width={'100%'} overflowX={'hidden'} p={4} bg color="white">  
