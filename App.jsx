@@ -7,6 +7,7 @@ import {getAllProducts } from './src/services/products.service.js';
 import { RouterProvider } from 'react-router-dom';
 import { router } from './src/routes/index.jsx';
 import Home from './src/pages/home.jsx';
+import { CartProvider } from './src/context/CartContext.jsx';
 
 const App = () => {
 
@@ -24,12 +25,9 @@ const App = () => {
 
   return (
     <ChakraProvider>
-      <NavBar />
-        {/*<ItemListContainer greeting={"productos nuevos"} >*/}
-        <RouterProvider router={router} />
-        {/* <Button onClick={addNewProduct}>Agregar Producto</Button> */}
-        {/*<Button onClick={updateExistingProduct}>Actualizar Producto</Button>}
-        {/* <ItemListContainer greeting="¡Que bueno verte!" /> */}
+      <CartProvider>
+      <RouterProvider router={router} />
+      </CartProvider>
     </ChakraProvider>
   );
 };

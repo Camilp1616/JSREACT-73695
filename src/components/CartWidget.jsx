@@ -1,9 +1,16 @@
 import { Flex } from "@chakra-ui/react";
-import { GiShoppingCart } from "react-icons/gi";
+import { useContext } from "react";
+import { CiShoppingCart } from "react-icons/ci";
+import { CartContext } from "../context/CartContext";
 
+const CartWidget = () => {
 
-const CardWidget = () => {
-return <Flex alignItems='center'><GiShoppingCart size={25} />3</Flex>
+    const {getTotalCount} = useContext(CartContext);
+    const totalCount = getTotalCount();
+
+return ( <Flex alignItems='center'><CiShoppingCart size={25} /> {totalCount}
+</Flex>
+);
 };
 
-export default CardWidget;
+export default CartWidget;
