@@ -1,5 +1,5 @@
 // import './App.css'
-import { ChakraProvider, Button } from '@chakra-ui/react';
+import { ChakraProvider} from '@chakra-ui/react';
 import NavBar from './src/components/NavBar.jsx';
 import ItemListContainer from './src/components/ItemListContainer';
 import MainLayout from './src/layouts/MainLayout';
@@ -8,6 +8,7 @@ import { RouterProvider } from 'react-router-dom';
 import { router } from './src/routes/index.jsx';
 import Home from './src/pages/home.jsx';
 import { CartProvider } from './src/context/CartContext.jsx';
+import {react} from "react"
 
 const App = () => {
 

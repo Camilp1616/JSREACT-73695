@@ -1,9 +1,10 @@
-import { Box, Button } from "@chakra-ui/react";
+import { Box, Button, Input } from "@chakra-ui/react";
 import { useContext } from "react";
+import { CartContext } from "../context/CartContext";
 
-const ItemCount = () => {
+const ItemCount = ({product}) => {
 
-    const {addProductToCart, removeProductFromCart} = useContext(cartContext)
+    const {addProductToCart, removeProductFromCart} = useContext(CartContext)
 
     return ( 
         <Box> 

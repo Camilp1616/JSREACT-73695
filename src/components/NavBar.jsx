@@ -2,14 +2,25 @@ import { Flex, Menu, MenuButton, MenuList,MenuItem,Button,} from "@chakra-ui/rea
 import CardWidget from "./CartWidget";
 import { useNavigate } from "react-router-dom";
 import {useEffect, useState} from "react";
-import { getAllCategories } from "../services/products.service";
+import { collection, getDocs } from "firebase/firestore"
+import { db } from "../services/config/firebase";
 
 const NavBar = () => {
-
-const navigate = useNavigate();
 const [categories, setCategories] = useState([])
+const navigate = useNavigate();
+
 useEffect(() => {
-    getAllCategories().then((res) => setCategories(res.data)).catch((error) => console.error(error)) 
+const categoriesCollection = collection (db, "categories")
+
+   getDocs(categoriesCollection)
+   .then( (snapshot) => {
+    const data = snapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+    }));
+    setCategories(data);
+   })
+    .catch(() => setError (true));
 },[])
 
 return <Flex alignItems="center" 
@@ -20,7 +31,7 @@ return <Flex alignItems="center"
         border='2px solid rgb(232, 41, 41)'>
         
 
-    <div className="test" onClick={() => navigate("/")} cursor="pointer" >Bohème</div>
+    <div className="test" onClick={() => navigate("/")} cursor="pointer" >Bohèmee</div>
     {/*<div>hola</div>*/} 
     <Menu>
     <MenuButton as={Button}>Merch</MenuButton>

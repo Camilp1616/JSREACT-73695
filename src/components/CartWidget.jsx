@@ -5,7 +5,7 @@ import { CartContext } from "../context/CartContext";
 
 const CartWidget = () => {
 
-    const {getTotalCount} = useContext(CartContext);
+    const {getTotalCount, cart} = useContext(CartContext);
     const totalCount = getTotalCount();
 
 return ( <Flex alignItems='center'><CiShoppingCart size={25} /> {totalCount}

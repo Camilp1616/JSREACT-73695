@@ -39,7 +39,8 @@ const ItemListContainer = ({products}) => {
         image={product.thumbnail} 
         title={product.title} 
         description={product.description} 
-        price={product.price} 
+        price={product.price}
+        discount={product.discountPercentaje}
         >
         
         </ItemCard>
