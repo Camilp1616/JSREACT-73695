@@ -5,9 +5,8 @@ import Item from "../pages/item";
 import Category from "../pages/category";
 import Memo from "../pages/memo";
 import AddDoc from "../pages/AddDoc";
-// URL Params: son parametros de URL, es decir informacion adicional que viaja en la URL que podemos utilizar
-// Cuando especificamos una ruta de la siguiente forma: /item/:id --> todo lo que esta luego del ':'
-// le dice al router que es un parametro dinamico
+import Cart from "../pages/Cart";
+import Checkout from "../pages/Checkout"
 
 const routes = [
 {
@@ -29,6 +28,14 @@ path: "category/:id",
 element: <Category/> ,
 },
 {
+path: "/cart",
+element: <Cart/> ,
+},
+{
+path: "/checkout",
+element: <Checkout/> ,
+},
+{
 path: "/add-Doc",
 element: <AddDoc/> ,
 },
@@ -38,8 +45,6 @@ element: <Memo/> ,
 },
 ]
 },
-
-
 
 ];
 
